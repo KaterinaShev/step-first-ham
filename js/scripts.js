@@ -33,8 +33,7 @@ function cards () {
 
   function filter(category, items) {
       items.forEach((item) => {
-        const isItemFiltered =
-          !item.classList.contains(category) && category !== "all";
+        const isItemFiltered = !item.classList.contains(category) && category !== "all";
 
         if (isItemFiltered) {
           item.style.display = "none"
@@ -147,14 +146,56 @@ const cardsServer = [
     });
   });
 }
-cards ()
-
-//слайдер
-$(document).ready(function() {
-    $('.slider').slick({
-        arrows: true,
-        dots: true,
-    });
-});
+cards ();
 
 
+
+function slider() {
+  const arrowPrev = document.querySelector(".arrow-prev");
+  const arrowNext = document.querySelector(".arrow-next");
+  const slides = document.querySelectorAll(".slider_item");
+  const dots = document.querySelectorAll(".reviews-slider_container");
+  let currentIndex = 1;
+  
+  function selectTabContent(person) {
+    slides.forEach(item => activeRemove(item, person));
+  };
+
+  function activeRemove(item, className) {
+    return item.classList.contains(className) ? item.classList.add("active") : item.classList.remove("active");
+  };
+
+  function createSlider() {
+    dots.forEach(item => item.addEventListener("click", selectTabBtns));
+
+    function selectTabBtns() {
+        dots.forEach(item => item.classList.remove("active"));
+        this.classList.add("active");
+        currentIndex = Number(this.dataset.person.split("-")[1]);
+        selectTabContent(this.dataset.person);
+    };
+
+    showSlides(currentIndex);
+
+    function nextSlide() {
+        showSlides(currentIndex += 1);
+    }
+
+    function previousSlide() {
+        showSlides(currentIndex -= 1);
+    }
+
+    function showSlides(n) {
+        if (n > dots.length) currentIndex = 1;
+        if (n < 1) currentIndex = dots.length;
+        for (let slide of dots) slide.classList.remove("active");
+        dots[currentIndex - 1].classList.add("active");
+        selectTabContent(dots[currentIndex - 1].dataset.person);
+    }
+
+    arrowNext.addEventListener("click", nextSlide);
+    arrowPrev.addEventListener("click", previousSlide);
+  };
+  createSlider();
+  }
+slider();

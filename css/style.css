@@ -231,6 +231,8 @@ h2 {
 }
 .tab.is-active {
     display: block;
+    animation-name: slide;
+    animation-duration: 2s;
 }
 .content_tab {
     display: flex;
@@ -361,6 +363,8 @@ h2 {
     transition: 3s;
     position: relative;
     margin-bottom: 0;
+    animation-name: slide;
+    animation-duration: 2s;
 }
 .item_img_amazing:hover .amazing_element {
     display: block;
@@ -586,7 +590,97 @@ h2 {
 .slider {
     position: relative;
 }
-.slider .slick-arrow {
+
+
+
+.arrow {
+    transition: background-color 0.3s linear;
+    font-size: 0;
+    width: 10px;
+    height: 15px;
+    padding: 8px 11px;
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+}
+.arrow-prev {
+    left: 0%;
+    background: url(../img/slider_left.svg) no-repeat center;
+    background-size: 10px;
+}
+.arrow-next {
+    right: 0%;
+    background: url(../img/slider_right.png) no-repeat center;
+    background-size: 10px;
+}
+.arrow-prev:hover {
+    background: url(../img/slider_left_hover.png) no-repeat center;
+    background-size: 10px;
+    background-color: #18CFAB;
+    border: none;
+    border: 1px solid #18CFAB;
+}
+.arrow-next:hover {
+    background: url(../img/slider_right_hover.png) no-repeat center;
+    background-size: 10px;
+    background-color: #18CFAB;
+    border: none;
+    border: 1px solid #18CFAB;
+}
+.reviews-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.reviews-slider_dots {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 30px;
+    cursor: pointer;
+}
+.slider_item {
+    display: none;
+}
+.slider_item.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation-name: slide;
+    animation-duration: 2s;
+
+}
+.reviews-slider_container.active {
+    transform: translateY(-10px);
+    transition: all 0.7s;
+}
+
+.reviews-slider_container:not(:first-child) {
+    margin-left: 38px;
+}
+.img_slide {
+    margin-top: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 10px rgba(31, 218, 181, 0.2);
+}
+.reviews-slider_img {
+    border-radius: 50%;
+    border: solid 5px rgba(24, 207, 171, 0.3);
+    /* object-fit: cover; */
+}
+@keyframes slide {
+    0% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* .slider .slick-arrow {
     position: absolute;
     top: 92%;
     font-size: 0;
@@ -647,7 +741,7 @@ h2 {
     width: 70px;
     height: 69px;
     cursor: pointer;
-}
+} */
 .container_footer {
     background-color: #22353F;
     height: 121px;
