@@ -6,7 +6,7 @@ ol[class] {
 }
 html {
     min-width: 1200px;
-    width: 1920px;
+    max-width: 1920px;
     overflow-x: hidden;
 }
 a {
@@ -23,13 +23,17 @@ h2 {
 .header_main {
     display: flex;
     justify-content: space-between;
-    background-color: rgba(94, 93, 88, 0.6);
+    margin: 0 auto;
     height: 120px;
+    max-width: 1160px;
 }
+.container_header {
+    background-color: rgba(94, 93, 88, 0.6);
+}
+
 .logo_header {
     display: flex;
     align-items: center;
-    margin-left: 380px;
 }
 .logo_img {
     padding: 26px 6px 27px 0px;
@@ -58,7 +62,6 @@ h2 {
 }
 .menu_loupe {
     display: flex;
-    margin-right: 380px;
 }
 .header_menu {
     display: flex;
@@ -92,8 +95,9 @@ h2 {
     height: 1012px;
 }
 .main_content_header {
-    padding: 0 559px 0 563px;
+    margin: 0 auto;
     text-align: center;
+    align-content: center;
 }
 .header_title {
     font-size: 35px;
@@ -211,7 +215,7 @@ h2 {
 .tabs-nav__item {
     width: 100%;
     padding: 14px 0 13px;
-    border: 1px solid #EDEFEF;
+    border: 1.5px solid #EDEFEF;
     font-size: 15.9859px;
     line-height: 39px;
     color: #717171;
@@ -242,6 +246,7 @@ h2 {
 .tabs-nav__item.is-active {
     background-color: #18CFAB;
     position: relative;
+    transition: 0.5s;
 }
 .tabs-nav__item.is-active::after {
     content: "";
@@ -252,7 +257,7 @@ h2 {
     position: absolute;
     top: 100%;
     left: calc(50% - 5.5px);
-
+    padding-bottom: 2px;
 }
 .container_everything {
     height: 476px;
@@ -335,6 +340,7 @@ h2 {
     font-size: 15.9859px;
     line-height: 39px;
     color: #717171;
+    cursor: pointer;
 }
 .item_amazing:first-child {
     padding: 14px 27px 13px;
@@ -352,6 +358,7 @@ h2 {
     flex-wrap: wrap;
 }
 .item_img_amazing {
+    transition: 3s;
     position: relative;
     margin-bottom: 0;
 }
@@ -363,22 +370,30 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #E9EDEF;
     border-top: 2px solid #18CFAB;
     width: 100%;
     height: 100%;
     text-align: center;
 }
+.amazing_element:hover {
+    transition: 0.8s;
+    background-color: #E9EDEF;
+}
 .amazing_element_content {
     margin-top: 54px;
+    vertical-align: center;
+}
+.img_amazing_element {
+    vertical-align: center;
 }
 .link_amazing_element {
     padding: 12px 13px 11px 11px;
     border: 2px solid #18CFAB;
-    border-radius: 30px;
+    border-radius: 50%;
 }
 .link_amazing_element:hover {
     background-color: #18CFAB;
+    transition: 0.5s;
 }
 .title_amazing_element {
     font-size: 14.1771px;
@@ -419,7 +434,7 @@ h2 {
     justify-content: center;
     align-items: center;
     width: 168px;
-    padding: 13px 8px 8px 23px;
+    padding: 10px;
     border-radius: 5px;
     margin: 0 auto;
     text-transform: uppercase;
@@ -473,9 +488,11 @@ h2 {
 }
 .item_news:hover .img_text_news {
     background-color: #18CFAB;
+    transition: 0.5s;
 }
 .item_news:hover .title_item_news {
     color: #18CFAB;
+    transition: 0.5s;
 }
 .title_item_news {
     font-size: 17.9885px;
@@ -577,6 +594,7 @@ h2 {
     height: 15px;
     padding: 8px 11px;
     border: 1px solid #BBBBBB;
+    cursor: pointer;
 }
 .slider .slick-arrow.slick-next {
     right: 0%;
@@ -628,6 +646,7 @@ h2 {
     border: none;
     width: 70px;
     height: 69px;
+    cursor: pointer;
 }
 .container_footer {
     background-color: #22353F;
